@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+
+</head>
+
+<body>
+    <h1>Boggle Game</h1>
+
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-4">
+                <p>Timer</p>
+                
+            </div>
+
+
+
+
+            <div class="col-md-4">
+               <p>Enter word</p> 
+              <div class="input word-err"">
+                    <input class=" input-input" id="word-input" autocomplete="off" type="text">
+                </div>
+                <div class="board-back"
+                    style="position: absolute; top: 107px; left: 5px; width: 205px; height: 205px; z-index: 100;">
+                    <div class="print-helper"></div>
+                    <div class="cell selectable"
+                        style="position: absolute; top: 1px; left: 1px; width: 50px; height: 50px;">
+                        <div class="dice"><span class="diceface">i</span></div>
+                    </div>
+                    <div class="cell selectable"
+                        style="position: absolute; top: 1px; left: 52px; width: 50px; height: 50px;">
+                        <div class="dice"><span class="diceface">t</span></div>
+                    </div>
+                    <div class="cell selectable"
+                        style="position: absolute; top: 1px; left: 103px; width: 50px; height: 50px;">
+                        <div class="dice"><span class="diceface">g</span></div>
+                    </div>
+                    <div class="cell selectable"
+                        style="position: absolute; top: 1px; left: 154px; width: 50px; height: 50px;">
+                        <div class="dice"><span class="diceface">t</span></div>
+                    </div>
+                    <div class="cell selectable"
+                        style="position: absolute; top: 52px; left: 1px; width: 50px; height: 50px;">
+                        <div class="dice"><span class="diceface">s</span></div>
+                    </div>
+                    <div class="cell selectable"
+                        style="position: absolute; top: 52px; left: 52px; width: 50px; height: 50px;">
+                        <div class="dice"><span class="diceface">a</span></div>
+                    </div>
+                    <div class="cell selectable"
+                        style="position: absolute; top: 52px; left: 103px; width: 50px; height: 50px;">
+                        <div class="dice"><span class="diceface">e</span></div>
+                    </div>
+                    <div class="cell selectable"
+                        style="position: absolute; top: 52px; left: 154px; width: 50px; height: 50px;">
+                        <div class="dice"><span class="diceface">n</span></div>
+                    </div>
+                    <div class="cell selectable"
+                        style="position: absolute; top: 103px; left: 1px; width: 50px; height: 50px;">
+                        <div class="dice"><span class="diceface">b</span></div>
+                    </div>
+                    <div class="cell selectable"
+                        style="position: absolute; top: 103px; left: 52px; width: 50px; height: 50px;">
+                        <div class="dice"><span class="diceface">d</span></div>
+                    </div>
+                    <div class="cell selectable"
+                        style="position: absolute; top: 103px; left: 103px; width: 50px; height: 50px;">
+                        <div class="dice"><span class="diceface">h</span></div>
+                    </div>
+                    <div class="cell selectable"
+                        style="position: absolute; top: 103px; left: 154px; width: 50px; height: 50px;">
+                        <div class="dice"><span class="diceface">u</span></div>
+                    </div>
+                    <div class="cell selectable"
+                        style="position: absolute; top: 154px; left: 1px; width: 50px; height: 50px;">
+                        <div class="dice"><span class="diceface">i</span></div>
+                    </div>
+                    <div class="cell selectable"
+                        style="position: absolute; top: 154px; left: 52px; width: 50px; height: 50px;">
+                        <div class="dice"><span class="diceface">e</span></div>
+                    </div>
+                    <div class="cell selectable"
+                        style="position: absolute; top: 154px; left: 103px; width: 50px; height: 50px;">
+                        <div class="dice"><span class="diceface">c</span></div>
+                    </div>
+                    <div class="cell selectable"
+                        style="position: absolute; top: 154px; left: 154px; width: 50px; height: 50px;">
+                        <div class="dice"><span class="diceface">e</span></div>
+                    </div>
+                </div> 
+
+            </div>
+            <div class="col-md-4">
+                <p >My words</p>
+                <div class="my-words"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script>
+    wordInput = $("#word-input");
+    // enteredWord = wordInput.val();
+    // console.log(enteredWord)
+    // if (!enteredWord){
+    //     alert("Enter word")
+    //     console.log("Enter word")
+    // }
+    // if (enteredWord) {
+
+    wordInput.on("keyup", function (event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            enteredWord = wordInput.val();
+            // alert(enteredWord);
+            
+            console.log(enteredWord)
+            $(".my-words").append(enteredWord + " ");
+            wordInput.val("");
+        }
+    
+
+    });
+    
+</script>
+
+</html>
